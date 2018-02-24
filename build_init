@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ -z "$SLN_FILE_NAME" ] || [ -z "$RELEASE_PATH" ]; then
+      echo "sln file name or release path undefined!"
+      exit 1
+    fi
+cd /app
+
+dotnet restore $SLN_FILE_NAME  && dotnet publish $SLN_FILE_NAME -c Release -o $RELEASE_PATH
